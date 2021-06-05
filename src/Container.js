@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  useParams
+  useParams,
 } from 'react-router-dom';
 import axios from 'axios';
 
@@ -8,11 +8,25 @@ import Photo from './Photo';
 import NotFound from './NotFound';
 import PropTypes from 'prop-types';
 
-const PhotoList = props => {
-
-  let pathName = <li>{props.location.pathname}</li>
+const Container = props => {
+  let pathName = <li>{props.location.pathname}</li>;
   let { query } = useParams();
+  
   console.log(`The query is "${query}"`)
+  
+  const performSearch = (query) => { 
+    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${props.apiKey}&tags=${query}&content_type=1&per_page=24&format=json&nojsoncallback=1`)
+      .then(response => {
+        console.log(response.data.photos.photo)
+        this.setState({
+          gifs: response.data.photos.photo,
+          loading: false
+        });
+      })
+      .catch(error => {
+        console.log('Error fetching and parsing data', error);
+      });    
+  }
   
   return (
     <div className="photo-container">
@@ -24,11 +38,11 @@ const PhotoList = props => {
   )
 }
 
-PhotoList.propTypes = {
+Container.propTypes = {
   urlList: PropTypes.arrayOf(PropTypes.string)
 }
 
-export default PhotoList;
+export default Container;
 
 // photos = [
 //   {

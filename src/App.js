@@ -1,24 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter,
-  Route
+  Route,
+  Switch
 } from 'react-router-dom';
+import axios from 'axios';
 
+import Header from './Header';
 import SearchForm from './SearchForm';
-import Nav from './Nav';
-import PhotoList from './PhotoList';
+import NavList from './NavList';
+import Container from './Container';
 
 import apiKey from './config';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   const queries = ['Koons', 'Basquiat', 'Klee']
+  const [urlList, setUrlList] = useState([]);
+
   return (
     <BrowserRouter >
-      <SearchForm />
-      <Nav queries={queries}/>
-      <PhotoList srcList={[]}/>
+      <div className="container">
+        <Header />
+        <SearchForm />
+        <NavList queries={queries}/>
+        <Switch >
+          <Route path={`/:query`} render={(props) => <Container {...props} apiKey={apiKey}/>}/>
+        </Switch>
+      </div>
     </BrowserRouter>
   );
 }

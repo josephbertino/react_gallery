@@ -4,6 +4,11 @@ body {
   color: #3f4850;
 }
 
+.header {
+  font-family: 'Futura';
+  text-decoration: underline;
+}
+
 h2 {
   font-size: 2em;
   margin: 52px 0 40px;
@@ -17,6 +22,18 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+a:visited {
+  color: blue;
+}
+
+a:hover{
+  color:orange;
+}
+
+a:active{
+  color:green;
 }
 
 .search-form {
