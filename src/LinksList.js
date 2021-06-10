@@ -3,22 +3,20 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 // Stateless component
-const NavList = (props) => {
+const LinksList = ({ queries }) => {
   return (
     <nav className="main-nav">
       <ul>
-        {props.queries.map( (query, idx) => {
-          return (
+        {queries.map( (query, idx) => 
             <li key={idx}><NavLink to={`/${query}`} >{query}</NavLink></li>
-          )
-        })}
+        )}
       </ul>
     </nav>
   )
 }
 
-NavList.propTypes = {
+LinksList.propTypes = {
   queries: PropTypes.arrayOf(PropTypes.string).isRequired
 }
 
-export default NavList;
+export default LinksList;

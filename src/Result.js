@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Stateless component
-const Photo = props => {
+const Result = props => {
   return (
     <li>
       <img src={props.url} alt="" />
@@ -10,8 +10,8 @@ const Photo = props => {
   )
 }
 
-Photo.propTypes = {
+Result.propTypes = {
   url: PropTypes.string.isRequired
 }
 
-export default Photo;
+export default Result;
