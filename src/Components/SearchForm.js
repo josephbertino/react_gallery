@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+// Stateful component
 const SearchForm = () => {
+  // use the useHistory() hook rather than props.history, just for fun
   const history = useHistory();
+
+  // Keep the searchTerm in sync with the input field's value using input.onChange
   const [searchTerm, setSearchTerm] = useState("");
 
+  // When the form is submitted, redirect to the route with the given query
   const handleSubmit = e => {
     e.preventDefault();
     history.push({ pathname: `/${searchTerm}` })
@@ -17,6 +22,7 @@ const SearchForm = () => {
         type="search" 
         name="search" 
         placeholder="Search"
+        // value is in sync with the searchTerm state
         value={searchTerm}
         onChange={e => setSearchTerm(e.target.value)} 
         required/>

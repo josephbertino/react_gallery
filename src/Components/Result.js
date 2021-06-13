@@ -7,6 +7,7 @@ const Result = props => {
 
   return (
     <li>
+      {/* Construct the image url from the img prop attributes */}
       <img src={`https://farm${img.farm}.staticflickr.com/${img.server}/${img.id}_${img.secret}.jpg`} alt="" />
     </li>
   )

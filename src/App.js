@@ -6,19 +6,25 @@ import {
 } from 'react-router-dom';
 
 import apiKey from './config';
-import Header from './Header';
-import SearchForm from './SearchForm';
-import LinksList from './LinksList';
-import ResultList from './ResultList';
+import Header from './Components/Header';
+import SearchForm from './Components/SearchForm';
+import LinksList from './Components/LinksList';
+import ResultList from './Components/ResultList';
 
 import './App.css';
 
+// Stateful component
 const App = () => {
 
   const queries = ['Apple', 'Banana', 'Carrot'];
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // This function is complicated.
+  // First, it sets the page's title according to the query.
+  // Then it sets loading=true so that the ResultList route can display "Loading..."
+  // Then it fetches the data from the Flickr API.
+  // Once it parses the response, it sets loading=false and saves the results in the state
   const performFetch = (query) => { 
     document.title = `Results: ${query}`;
     setLoading(true);

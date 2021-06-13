@@ -1,74 +1,20 @@
-## React Gallery App
-## Author: Joe Bertino
-## Year: 2021
+# React Gallery App
+#### Author: Joe Bertino
+#### Year: 2021
+# 
+## Description
 
-# Getting Started with Create React App
+This Single-Page-App (SPA), created with Create React App and powered by React, is a simple image search gallery, retrieving images from Flickr via its public developer API.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+At the top of the page, the Header ("React Gallery App") is a button that redirects you to the home page ('/') to refresh your display. 
 
-## Available Scripts
+Below the Header is a text search form. You can enter any keyword or phrase and submit the form to retrieve images related to that phrase. If the search yields no results (unlikely unless you enter some really long garbage), you will be presented with a "No Results Found" screen. Otherwise you should expect to see up to 24 images related to your search phrase, arranged in a grid.
 
-In the project directory, you can run:
+Next on the SPA are three buttons that automatically perform the image search for the phrases displayed on those buttons. This should get you rolling if you can't immediately think of something to search for!
 
-### `yarn start`
+Below the default phrase search buttons is the field which renders the images returned from Flickr. As you hover your mouse over each image, you should see an animation of the image zooming in.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Bonus Features
++ You can navigate forward and backward in your browser to access historical routes generated in your search session.
++ If you refresh the page in your browser, you remain at the route for your most recent search term.
++ You can also search for images by manually changing the route in the browser's omnibar.
