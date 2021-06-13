@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-const SearchForm = props => {
+const SearchForm = () => {
   const history = useHistory();
   const [searchTerm, setSearchTerm] = useState("");
 

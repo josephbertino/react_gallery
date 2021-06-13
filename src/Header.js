@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Header = props => {
+const Header = () => {
   return (
     <h1 className="header">
       <NavLink to={'/'}>React Gallery App</NavLink>

@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import {
   BrowserRouter,
@@ -15,23 +15,22 @@ import './App.css';
 
 const App = () => {
 
-  const queries = ['Koons', 'Basquiat', 'Klee'];
+  const queries = ['Apple', 'Banana', 'Carrot'];
   const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const performSearch = (query) => { 
-    console.log(`Searching for ${query}`)
-
+  const performFetch = (query) => { 
+    setLoading(true);
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&content_type=1&per_page=24&format=json&nojsoncallback=1`)
       .then((response) => {
-        console.log(response.data.photos.photo);
         setResults(response.data.photos.photo);
+        setLoading(false);
       })
       .catch(error => {
         console.log('Error fetching and parsing data', error);
       }); 
   }
 
-  console.log('rendering')
   return (
     <BrowserRouter >
       <div className="container">
@@ -43,7 +42,9 @@ const App = () => {
           render={(props) => 
             <ResultList 
               {...props} 
-              performSearch={performSearch} 
+              performFetch={performFetch}
+              results={results}
+              loading={loading}
             /> 
           }
         />
