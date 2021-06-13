@@ -20,6 +20,7 @@ const App = () => {
   const [loading, setLoading] = useState(false);
 
   const performFetch = (query) => { 
+    document.title = `Results: ${query}`;
     setLoading(true);
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&content_type=1&per_page=24&format=json&nojsoncallback=1`)
       .then((response) => {
@@ -37,6 +38,7 @@ const App = () => {
         <Header />
         <SearchForm />
         <LinksList queries={queries} />
+        <Route exact path='/' render={() => document.title = "React Gallery App"} />
         <Route 
           path={`/:query`} 
           render={(props) => 
