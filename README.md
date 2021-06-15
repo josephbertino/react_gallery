@@ -14,6 +14,14 @@ Next on the SPA are three buttons that automatically perform the image search fo
 
 Below the default phrase search buttons is the field which renders the images returned from Flickr. As you hover your mouse over each image, you should see an animation of the image zooming in.
 
+
+## Using the API
+This Single-Page-App retrieves images from Flickr via a RESTful API. Therefore, a user of this app must provide their own developer API key in order to perform searches.
++ The API key must be stored in a file named `config.js`, located in the `/src` directory
++ In `config.js`, the API key must be a string stored in a variable named `apiKey`
++ `export default apiKey` so that it may be imported by the container component in `App.js`
+
+
 ## Bonus Features
 + You can navigate forward and backward in your browser to access historical routes generated in your search session.
 + If you refresh the page in your browser, you remain at the route for your most recent search term.

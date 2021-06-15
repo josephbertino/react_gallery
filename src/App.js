@@ -3,6 +3,7 @@ import axios from 'axios';
 import {
   BrowserRouter,
   Route,
+  Switch
 } from 'react-router-dom';
 
 import apiKey from './config';
@@ -10,6 +11,7 @@ import Header from './Components/Header';
 import SearchForm from './Components/SearchForm';
 import LinksList from './Components/LinksList';
 import ResultList from './Components/ResultList';
+import ErrorPage from './Components/ErrorPage';
 
 import './App.css';
 
@@ -44,18 +46,21 @@ const App = () => {
         <Header />
         <SearchForm />
         <LinksList queries={queries} />
-        <Route exact path='/' render={() => document.title = "React Gallery App"} />
-        <Route 
-          path={`/:query`} 
-          render={(props) => 
-            <ResultList 
-              {...props} 
-              performFetch={performFetch}
-              results={results}
-              loading={loading}
-            /> 
-          }
-        />
+        <Switch >
+          <Route exact path='/' render={() => {document.title = "React Gallery App"}} />
+          <Route 
+            path={`/:query`} 
+            render={(props) => 
+              <ResultList 
+                {...props} 
+                performFetch={performFetch}
+                results={results}
+                loading={loading}
+              /> 
+            }
+          />
+          <Route render={() => <ErrorPage />} />
+        </Switch>
       </div>
     </BrowserRouter>
   );
