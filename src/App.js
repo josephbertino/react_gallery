@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import {
-  BrowserRouter,
   Route,
   Switch
 } from 'react-router-dom';
@@ -18,7 +17,7 @@ import './App.css';
 // Stateful component
 const App = () => {
 
-  const queries = ['Apple', 'Banana', 'Carrot'];
+  const queries = ['Chihuahua', 'Pomeranian', 'Weimaraner'];
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -41,28 +40,26 @@ const App = () => {
   }
 
   return (
-    <BrowserRouter >
-      <div className="container">
-        <Header />
-        <SearchForm />
-        <LinksList queries={queries} />
-        <Switch >
-          <Route exact path='/' render={() => {document.title = "React Gallery App"}} />
-          <Route 
-            path={`/:query`} 
-            render={(props) => 
-              <ResultList 
-                {...props} 
-                performFetch={performFetch}
-                results={results}
-                loading={loading}
-              /> 
-            }
-          />
-          <Route render={() => <ErrorPage />} />
-        </Switch>
-      </div>
-    </BrowserRouter>
+    <div className="container">
+      <Header />
+      <SearchForm />
+      <LinksList queries={queries} />
+      <Switch >
+        <Route exact path='/' render={() => {document.title = "React Gallery App"}} />
+        <Route 
+          path={`/:query`} 
+          render={(props) => 
+            <ResultList 
+              {...props} 
+              performFetch={performFetch}
+              results={results}
+              loading={loading}
+            /> 
+          }
+        />
+        <Route render={() => <ErrorPage />} />
+      </Switch>
+    </div>
   );
 }
 
